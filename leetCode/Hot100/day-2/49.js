@@ -7,17 +7,18 @@ var groupAnagrams = function(strs) {
     const map = new Map();
 
     for (const str of strs) {
-        const key = str.split('').sort().join('');
+        const key = str.split('').sort().join('');// 将字符串排序后作为哈希键
 
         if (!map.has(key)) {
-            map.set(key, []);
+            map.set(key, []);// 如果哈希键不存在，则创建一个新的数组
         }
 
-        map.get(key).push(str);
+        map.get(key).push(str);// 将原字符串添加到对应哈希键的数组中
     }
 
     return Array.from(map.values());
 };
+//console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]));
 
 //  暴力解
 var groupAnagramsBruteForce = function(strs) {
@@ -62,3 +63,4 @@ var groupAnagramsBruteForce = function(strs) {
 
     return res;
 };
+console.log(groupAnagramsBruteForce(["eat","tea","tan","ate","nat","bat"]));
